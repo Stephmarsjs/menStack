@@ -1,4 +1,4 @@
-const url = "http://localhost:3000"
+const url = "http://localhost:3000/api/rooms"
 
 let hotel = []; 
 
@@ -15,9 +15,12 @@ xhrGetAll.onload = () => {
     }
 }
 
+
+
+// Submit Button on Home tab to go to Rates Tab
 function searchAvailability (e) { 
     e.preventDefault(); 
-    console.log("Submit"); 
+    console.log("Submitted Room Search"); 
 
     let roomSearch = { 
         checkIn: document.getElementById("checkIn").value, 
@@ -29,9 +32,49 @@ function searchAvailability (e) {
     console.log(roomSearch); 
 
     let xhr = new window.XMLHttpRequest(); 
-    xhrPost.open("Post", url); 
-    xhrPost.setRequestHeader("Content-Type", "application/json");
-    xhrPost.send(JSON.stringify(grad));
+    xhrGet.open("GET", url); 
+    xhrGet.setRequestHeader("Content-Type", "application/json");
+    xhrGet.send(JSON.stringify(roomSearch));
+}
+
+//Display potentialBooking allowing for edit on Rates Tab
+// NotWorking 
+function displayPotentialBooking() {
+    console.log("Potential Booking"); 
+    const potentialBooking = renderAvailable().map(element =>{
+        return (
+                "<li>" + 
+                element.roomName + 
+                " <br> " + 
+                element.roomDescription + 
+                " <br> " + 
+                element.roomPrice + "<price per night" + 
+                " <br> " + 
+
+                `<button onclick=bookNow('${element.addBooking}">Book Now </button>')`
+            "</li>"
+        )
+    })
+            document.getElementById("results").innerHTML = 
+            "<ul>" + gradList.join('\n') + "</ul>"; 
+}
+
+// Render Rooms on Home tab from Submit button to Rates Tab
+function renderRoomsAvailable () { 
+    console.log("Room availability"); 
+    const availableRoomsList = availableRooms.map(element => { 
+        return (
+            "<li>" + 
+                element.roomName + 
+                " <br> " + 
+                element.roomDescription + 
+                " <br> " + 
+                element.roomPrice + "<price per night" + 
+                " <br> " + 
+                `<button onclick=bookNow('${element.addBooking}">Book Now </button>')`
+            "</li>"
+        )})
+            document.getElementById("results").innerHTML = "<ul>" + roomList.join('n') + "</ul>"; 
 }
 
 
@@ -41,25 +84,21 @@ function searchAvailability (e) {
 
 
 
+function bookRoom(e) { 
+    e.preventDefault(); 
+    console.log("Room Book"); 
+
+    let xhrDelete = new XMLHttpRequest(); 
+    xhrDelete.open('DELETE', url, true); 
+    xhrDelete.onload = function () { 
+        let rooms = JSON.parse(xhrDelete.response); 
+        if(xhrDelete.readyState == 4 && xhrDelete.status == "200") { 
+            console.table(rooms); 
+        } else { 
+            console.error(rooms);
+        }
+    }
+    xhrDelete.send(null);
+}
 
 
-
-// const renderHotel = () => { 
-//     console.log('submit'); 
-//     const hotelList = hotel.map(element => { 
-//         return (
-//             "<li>" + 
-//             "CHECK IN: " + element.checkIn + 
-//             " <br> "
-//             "CHECK OUT: "  + element.checkOut + 
-//             " <br> " + 
-//             "# OF NIGHTS: " + element.numberOfNights + 
-//             " <br> " + 
-//             "ADULTS: " + element.adults + 
-//             " <br> " + 
-//             "CHILDREN: " + element.children + 
-
-//             "</li>"
-//         )
-//     })
-// }

@@ -15,80 +15,100 @@
     
     <div class = "jumbotron text-center">
       <h1>NASA Hotel</h1>
-      <p>Book your hotel</p>
+      <p>Book your Stay</p>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">NASA HOTEL</a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tabs" aria-controls="tabs" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="tabs">
         <ul class="navbar-nav mr-auto">
 
           <!-- Active Tab -->
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#tabs-1">SEARCH <span class="sr-only">(current)</span></a>
           </li>
           
-          <!-- Link Tab -->
+          <!-- RATES Tab -->
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link disabled" href="#tabs-2">RATES <span class="sr-only"></span></a>
           </li>
           
-          <!-- Dropdown Bar -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-
-          <!-- Disable Bar -->
+          <!-- GUESTS Bar -->
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link disabled" href="#tabs-3">GUESTS <span class="sr-only"></span></a>
           </li>
 
+          <!-- DONE Bar -->
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#tabs-4">DONE <span class="sr-only"></span></a>
+          </li>
         </ul>
-        
-        <!-- search bar  -->
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
-      </div>
+       </div> 
     </nav>
             
-            
+    
+    <div class="containers"> 
+      <form onsubmit="renderRooms(event)">
+        <label for="datemin">Check In date:</label>
+        <input type="date" id="datemin" name="datemin" min="2000-01-02">
+        <br>
+        <label for="datemin">Check Out date:</label>
+        <input type="date" id="datemin" name="datemin" min="2000-01-02">
+        <br>
+        <label for="quantity"># OF NIGHTS:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="30">
+        <br>
+        <label for="adults">ADULTS:</label>
+        <input type="number" id="quantity" name="quantity" min="0" max="10">
+        <br>
+        <label for="children">CHILDREN:</label>
+        <input type="number" id="quantity" name="quantity" min="0" max="10">
+      </form>
+      <form onsubmit="renderRoomsAvailable(event)">
+        <input type="button" value = "SUBMIT" onclick='$("#lnk2").trigger("click")'/>
+    </div>
 
-              <div id="dates">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-            <form>
-              <label for="datemin">Check In date:</label>
-              <input type="date" id="datemin" name="datemin" min="2000-01-02">
-              <label for="datemin">Check Out date:</label>
-              <input type="date" id="datemin" name="datemin" min="2000-01-02">
-            </form>
-            </div>
+    <div class="containers"> 
+      <form>
+        <label for="firstName">FIRST NAME:</label>
+        <input type="text" id="firstName">
+        <br>
+        <label for="lastName">LAST NAME:</label>
+        <input type="text" id="lastName">
+        <br>
+        <label for="email">EMAIL:</label>
+        <input type="text" id="email">
+        <br>
+        <label for="adults">PHONE #:</label>
+        <input type="number" id="phone"> 
+        <br>
+        <label for="streetAddress">STREET ADDRESS:</label>
+        <input type="text" id="streetAddress">
+        <br>
+        <label for="country">COUNTRY:</label>
+        <input type="text" id="country">
+        <br>
+        <label for="state">STATE:</label>
+        <input type="text" id="state">
+        <br>
+        <label for="zip">ZIP/POSTAL:</label>
+        <input type="number" id="phone"> 
+      </form>
+      <form onsubmit="renderRoomsAvailable(event)">
+        <input type="button" value = "SUBMIT" onclick='$("#lnk2").trigger("click")'/>
+    </div>
 
-            <div id="numguests">
 
-            <label for="quantity">Number of guests:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="4">
-            </div>
-
-            <div id = "numnights">
-            <label for="quantity">Number of nights:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="30">
-            </div>  
-
-            </script>   
+    <script src="script.js"></script>  
     </body>
