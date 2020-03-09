@@ -53,33 +53,40 @@
             
     
     <div class="containers"> 
-      <form onsubmit="renderRooms(event)">
         <label for="datemin">Check In date:</label>
         <input type="date" id="datemin" name="datemin" min="2000-01-02">
         <br>
+
         <label for="datemin">Check Out date:</label>
         <input type="date" id="datemin" name="datemin" min="2000-01-02">
         <br>
-        <label for="quantity"># OF NIGHTS:</label>
+        <!-- <label for="quantity"># OF NIGHTS:</label>
         <input type="number" id="quantity" name="quantity" min="1" max="30">
-        <br>
+        <br> -->
+
         <label for="adults">ADULTS:</label>
         <input type="number" id="quantity" name="quantity" min="0" max="10">
         <br>
+
         <label for="children">CHILDREN:</label>
         <input type="number" id="quantity" name="quantity" min="0" max="10">
-      </form>
-      <form onsubmit="renderRoomsAvailable(event)">
-        <input type="button" value = "SUBMIT" onclick='$("#lnk2").trigger("click")'/>
+        <br>
+        <br>
+
+        <button onclick="displayBookingSearch()"> SUBMIT </button>
     </div>
 
+      <div id="results"></div>
+
+      <script src="script.js"></script>
+
     <br>
     <br>
     <br>
     <br>
     <br>
 
-    <div class="containers"> 
+    <!-- <div class="containers"> 
       <form>
         <label for="firstName">FIRST NAME:</label>
         <input type="text" id="firstName">
@@ -107,8 +114,6 @@
       </form>
       <form onsubmit="renderRoomsAvailable(event)">
         <input type="button" value = "SUBMIT" onclick='$("#lnk2").trigger("click")'/>
-    </div>
-
-
-    <script src="script.js"></script>  
+    </div> -->
+ 
     </body>
