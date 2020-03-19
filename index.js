@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 mongoose
-  .connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect(keys.mongoUri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
   .then(() => console.log("connected to db"))
   .catch(error => console.log("DB Connection error", error));
 
