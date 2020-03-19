@@ -6,10 +6,24 @@
     <body>
             <h1>N.A.S.A Hotel</h1>
 
+            
+
+
+            <div id="hotelInfo">
+                <form action="api/nasa" method="POST">
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Date" name="date">
+                <input type="text" placeholder="numNights" ="numnights">
+                <input type="text" placeholder="roomType" name="roomType">
+                <button id="submit" type="submit">Submit</button>
+                </form>
+                </div>
+
+
               <div id="dates">
 
                 
-            <form>
+            <!-- <form>
               <label for="datemin">Check In date:</label>
               <input type="date" id="datemin" name="datemin" min="2000-01-02">
               <label for="datemin">Check Out date:</label>
@@ -26,7 +40,7 @@
             <div id = "numnights">
             <label for="quantity">Number of nights:</label>
             <input type="number" id="quantity" name="quantity" min="1" max="30">
-            </div>  
+            </div>   -->
 
 
 
