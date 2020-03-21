@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
+const { reservationSchema } = require("./Reservation");
+
 const hotelSchema = mongoose.model('Hotel', new mongoose.Schema({
-   
-    numberOfNights: {
-        type: Number
-    }, 
-    room: {
-        roomType: {
+    name: {
         type: String
-        }, 
-        roomNumber: {
-        type: Number 
-        }
-    }
-}));  
+    },
+    location: {
+        type: String
+    },
+    reservation: [reservationSchema]
+})
+);
 
 exports.hotelSchema = hotelSchema;

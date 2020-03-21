@@ -7,134 +7,15 @@
             <h1>N.A.S.A Hotel</h1>
 
             
-
-
-            <div id="hotelInfo">
+                <div id="hotelInfo">
                 <form action="api/nasa" method="POST">
-                <input type="text" placeholder="Name" name="name">
-                <input type="text" placeholder="Date" name="date">
-                <input type="text" placeholder="numNights" ="numnights">
+                <input type="date" placeholder="checkIn" name="checkIn">
+                <input type="date" placeholder="checkOut" name="checkOut">
+                <input type="text" placeholder="numberOfNights" name="numberOfNights">
                 <input type="text" placeholder="roomType" name="roomType">
                 <button id="submit" type="submit">Submit</button>
                 </form>
                 </div>
 
-
-              <div id="dates">
-
-                
-            <!-- <form>
-              <label for="datemin">Check In date:</label>
-              <input type="date" id="datemin" name="datemin" min="2000-01-02">
-              <label for="datemin">Check Out date:</label>
-              <input type="date" id="datemin" name="datemin" min="2000-01-02">
-            </form>
-            </div>
-
-            <div id="numguests">
-
-            <label for="quantity">Number of guests:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="4">
-            </div>
-
-            <div id = "numnights">
-            <label for="quantity">Number of nights:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="30">
-            </div>   -->
-
-
-
-
-            <h4>We have THE BEST vues in TOWN!</h4>
-            <p>Come check out our amazing staff and even better pricing!</p>
-            <h5>Available Rooms</h5>
-            <div id="hotelRooms">
-            </div>
-            <button type ="button" onclick="theAngularHotel.bookRoom()">Book Room</button>
-            <h5>Booked Rooms</h5>
-            <div id="hotelRoomsBooked">
-                <select>
-                        <option></option>
-                </select>
-            </div>
-            <script>
-            var theAngularHotel = {
-             roomType: ["Single", "Double", "Queen", "King"],
-             roomNumbers: [[101, 102, 103], [104, 105, 106], [201, 202, 203], [300, 305]],
-             roomPrices: [[60], [75], [85], [100]],
-             bookedRooms: [ [], [], [], []],   
-                listHotelRooms: function() {
-                    var availableRooms = "<select id='selectedRoomNumber'>";
-                    for (var i = 0; i < this.roomNumbers.length; i++) {
-                        availableRooms += "<optgroup label ="+this.roomType[i]+'-'+this.roomPrices[i]+">"
-                        for (var j = 0; j < this.roomNumbers[i].length; j++) {
-                            availableRooms += "<option value="+this.roomNumbers[i][j]+">" 
-                            +this.roomNumbers[i][j]+"</option>";
-                        }
-                        availableRooms += "</optgroup>";
-                    }
-                    availableRooms += "</select>";
-                    document.getElementById("hotelRooms").innerHTML = availableRooms;  
-                }, 
-                bookRoom: function() {
-                    var selectSingleRoom = document.getElementById("selectedRoomNumber").value;
-                        // selectSingleRoom = 105
-                        alert(selectSingleRoom);
-                        for (var i =0; i < this.roomNumbers.length; i++) {
-                            for (var j =0; j < this.roomNumbers[i].length; j++) {
-                                if (selectSingleRoom == this.roomNumbers[i][j]){ // i=0, j=0
-                            this.bookedRooms[i].push(this.roomNumbers[i].splice(j,1)[0]);  
-                        }   
-                           }
-                           this.listHotelRooms();
-                           this.unavailableRooms();
-            }
-              },
-    unavailableRooms: function() {
-        var roomsUnavailable= "<select id='unavailableRoomNumbers'>";
-            for (var i = 0; i <this.bookedRooms.length; i++) {
-                roomsUnavailable += "<optgroup label="+this.roomType[i]+'-'+this.roomPrices[i]+">"
-                    for (var j = 0; j <this.bookedRooms[i].length; j++){
-                        roomsUnavailable+= "<option value="+this.bookedRooms[i][j]+">"
-                            +this.bookedRooms[i][j]+"</option>";
-                    }
-                    roomsUnavailable += "</optgroup>";
-            }
-            roomsUnavailable += "</select>";
-            document.getElementById("hotelRoomsBooked").innerHTML = roomsUnavailable;
-                },
-             };
-             theAngularHotel.listHotelRooms();
-             theAngularHotel.unavailableRooms();
-            </script>   
-    </body>
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Document</title>
-  </head>
-  <body>
-    <h1 id="app-title">Stanley Hotel</h1>
-      <div class="container">
-          <h3>Add Hotel</h3>
-        <form onsubmit="addHotel(event)">
-            <input type="text" placeholder="Hotel Name" id="name">
-        <input type="text" placeholder="Location" id="location">
-        <input type="text" placeholder="Room Number" id="roomnumber">
-        <input type="text" placeholder="Room Type" id="roomtype">
-        <input type="text" placeholder="Room Price" id="roomprice">
-        <input type="text" placeholder="Available" id="available">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Add Hotel</button>
-        </form>
-        <button class="btn waves-effect waves-light" onclick="renderHotels()">Show All Hotels</button>
-        <div id="room"></div>
-        <script src="script.js"></script>
-  </body>
-</html> -->
+            </body>
+</html> 
