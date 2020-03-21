@@ -1,29 +1,27 @@
-// const url = "http://localhost:3000/api/rooms"
+const url = "http://localhost:3000/api/nasa"
 
-let hotelBooking = []; 
+let Reservation = []; 
 
-// let xhrGetAll = new XMLHttpRequest(); 
-// xhrGetAll.open('Get', url, true); 
-// xhrGetAll.send();
+let xhrGetAll = new XMLHttpRequest(); 
+xhrGetAll.open('Get', url, true); 
+xhrGetAll.send();
 
-// xhrGetAll.onload = () => { 
-//     console.log(xhrGetAll); 
-//     grads = JSON.parse(xhrGetAll.response); 
+xhrGetAll.onload = () => { 
+    console.log(xhrGetAll); 
+    Reservation = JSON.parse(xhrGetAll.response); 
 
-//     if(xhrGetAll.readyState == 4 && xhrGetAll == 200){ 
-//         console.log()
-//     }
-// }
+    if(xhrGetAll.readyState == 4 && xhrGetAll == 200){ 
+        console.log()
+    }
+}
 
 
-function displayBookingSearch() {
+function displayBookingAvailability() {
     console.log("Successful Booking Search"); 
-    const bookingSearch =hotelBooking.map(element =>{
+    const checkAvailability = hotelRoom.map(element =>{
         return (
                 "<li>" + 
-                element.roomName + 
-                " <br> " + 
-                element.roomDescription + 
+                element.roomType +  
                 " <br> " + 
                 element.roomPrice + "<price per night" + 
                 " <br> " + 
@@ -33,29 +31,26 @@ function displayBookingSearch() {
         )
     })
             document.getElementById("results").innerHTML = 
-            "<ul>" + bookingSearch.join('\n') + "</ul>"; 
+            "<ul>" + checkAvailability.join('\n') + "</ul>"; 
 }
 
 
-// // Submit Button on Home tab to go to Rates Tab
-// function searchAvailability (e) { 
-//     e.preventDefault(); 
-//     console.log("Submitted Room Search"); 
+// Submit Button on Home tab to go to Rates Tab
+function searchAvailability (e) { 
+    e.preventDefault(); 
+    console.log("Submitted Room Search"); 
 
-//     let roomSearch = { 
-//         checkIn: document.getElementById("checkIn").value, 
-//         checkOut: document.getElementById("checkOut").value, 
-//         numberOfNights: document.getElementById("numberOfNights").value, 
-//         adults: document.getElementById("adults").value, 
-//         children: document.getElementById("children").value
-//     }; 
-//     console.log(roomSearch); 
+    let roomSearch = { 
+        checkIn: document.getElementById("checkIn").value, 
+        checkOut: document.getElementById("checkOut").value, 
+    }; 
+    console.log(roomSearch); 
 
-//     let xhr = new window.XMLHttpRequest(); 
-//     xhrGet.open("GET", url); 
-//     xhrGet.setRequestHeader("Content-Type", "application/json");
-//     xhrGet.send(JSON.stringify(roomSearch));
-// }
+    let xhr = new window.XMLHttpRequest(); 
+    xhrGet.open("GET", url); 
+    xhrGet.setRequestHeader("Content-Type", "application/json");
+    xhrGet.send(JSON.stringify(roomSearch));
+}
 
 // // Render Rooms on Home tab from Submit button to Rates Tab
 // function renderRoomsAvailable () { 
