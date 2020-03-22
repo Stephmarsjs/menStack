@@ -4,45 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>KP Booking</title>
   </head>
   <body>
-    <h1>HOTEL NAS</h1>
-  </body>
-<!doctype html>
-<html>
-    <head>
-        <script src="scriptXHR.js"></script>
-    </head>
-    <body>
-            <h1>N.A.S.A Hotel</h1>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-2">
+          <a href="#" class="brand-logo">KP Booking</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#reservations" >Reservations</a></li>
+            <li><a class="nav-link" href="#users">Users</a></li>
+            <li><a class="nav-link" href="#admin">Admin</a></li>
+          </ul>
+        </div>
+      </nav>
+      <section id="home">
+      <div class="container">
+          <h4>What would you like to do?</h4 >
+            <ul class="collection">
+                <li class="collection-item">Browse Hotels  &nbsp; &nbsp; &nbsp; &nbsp;<button class="btn waves-effect waves-light" onclick="renderHotels()">List Hotels</button></li>
+                <div id="room"></div>
+            </section>
+            <section id="reservations">
+                <div class="container">
+                <ul class="collection">
+                <li class="collection-item">Find a Hotel &nbsp; &nbsp; &nbsp; &nbsp;
+                    <form onsubmit="addHotel(event)">
+                        <input type="text" placeholder="Hotel Name" id="name">
+                    <input type="text" placeholder="Location" id="location">
+                    <input type="text" placeholder="Room Number" id="roomnumber">
+                    <input type="text" placeholder="Room Type" id="roomtype">
+                    <input type="text" placeholder="Room Price" id="roomprice">
+                    <input type="text" placeholder="Available" id="available">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Add Hotel</button>
 
-            <div>
-            <nav>
-                <ul id="nav-mobile">
-                <li><a href="Home">Home</a></li>
-                <li><a href="Reservations">Reservations</a></li>
-                <li><a href="AboutUs">About Us</a></li>
-                <li><a href="ContactUs">Contact Us</a></li>
-                </ul>
-            </div>
-
-
-              </nav>
-           
+                    </form>
+            </ul>
+        </div>
+        </section>
             
-                <div id="hotelInfo">
-                <form action="api/nasa" method="POST">
-                <input type="date" placeholder="checkIn" name="checkIn">
-                <input type="date" placeholder="checkOut" name="checkOut">
-                <input type="text" placeholder="numberOfNights" name="numberOfNights">
-                <input type="text" placeholder="roomType" name="roomType">
-                <button id="submit" type="submit">Submit</button>
-                </form>
-                </div>
-
-            </body>
-</html> 
-
-    </body>
+        
+        <script src="script.js"></script>
+  </body>
 </html>
