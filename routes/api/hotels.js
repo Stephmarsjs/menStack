@@ -25,10 +25,13 @@ router.post('/', async (req, res) => {
         numberOfNights: req.body.numberOfNights,
         rooms: req.body.rooms
     });
-
-    hotelReservation = await hotelReservation.save();
-    console.log(hotelReservation); 
-    res.send(hotelReservation);
+    try { 
+        console.log(hotelReservation); 
+        hotelReservation = await hotelReservation.save();
+        res.send(hotelReservation);
+    }catch (err) { 
+        res.status(400).json({ message: err.message });
+    }
 });
 
 //update a reservation
