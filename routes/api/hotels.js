@@ -11,11 +11,12 @@ router.get('/', async (req, res) => {
 });
 
 //get one single reservation by id 
-router.get('/:id', async (req, res) => {
+router.get('/api/nasa/:id', async (req, res) => {
     const reservation= await Reservation.findById(req.params.id);
     if (!reservation) return res.status(404).send('The reservation with the given ID was not found.');
     res.send(reservation);
 });
+
 
 //make a reservation
 router.post('/', async (req, res) => {

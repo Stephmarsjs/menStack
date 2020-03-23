@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>HOTEL NAS</h1>
-  </body>
-<!doctype html>
-<html>
     <head>
-        <script src="scriptXHR.js"></script>
+       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
     </head>
     <body>
-            <h1>N.A.S.A Hotel</h1>
-
-            <div>
+        
+        <div>
             <nav>
                 <ul id="nav-mobile">
                 <li><a href="Home">Home</a></li>
@@ -26,23 +19,96 @@
                 <li><a href="ContactUs">Contact Us</a></li>
                 </ul>
             </div>
-
-
+​
               </nav>
-           
-            
-                <div id="hotelInfo">
-                <form action="api/nasa" method="POST">
-                <input type="date" placeholder="checkIn" name="checkIn">
-                <input type="date" placeholder="checkOut" name="checkOut">
-                <input type="text" placeholder="numberOfNights" name="numberOfNights">
-                <input type="text" placeholder="roomType" name="roomType">
-                <button id="submit" type="submit">Submit</button>
-                </form>
-                </div>
+​
 
+            <h1>The N.A.S.A Hotel</h1>
+            <button id="all" onclick="getAllRooms()">Get All Rooms</button>
+​
+            <div id="allrooms" style="padding: 10px">
+            
+            </div>
+​
+            <label for="checkIn">Check In</label>
+            <input type="date" name="checkIn" id="checkIn" placeholder="Check In">
+            <label for="checkOut">Check Out</label>
+            <input type="date" name="checkOut" id="checkOut" placeholder="Check Out">
+            <label for="numberOfNights">Number Of Nights</label>
+            <input type="number" name="numberOfNights" id="numberOfNights" placeholder="Number Of Nights">
+            <label for="roomType">Room Type</label>
+            <input type="text" name="roomType" id="roomType" placeholder="Room Type">
+            <button id="post" onclick="createReservation()">Create Reservation</button>
+            <button id="update" onclick="updateReservation()">Update Reservation</button>
+            <button id="delete" onclick="deleteReservation()">Delete Reservation</button>
+        
+           
+​
+<script>
+    document.getElementById("all").addEventListener("click", getData);
+
+    function getData() {
+        const xhr = new XMLHttpRequest();
+        console.log(xhr);
+
+        xhr.open('GET', 'http://localhost:3000/api/nasa', true);
+        xhr.onload = function () {
+        
+            if (xhr.status == 200) {
+
+                var parsedData = JSON.parse(xhr.responseText);
+
+                console.log(parsedData); 
+                var dataList = ""; 
+
+                for (var i = 0; i < parsedData.length; i++) {
+                    dataList += "<p> Check In: " + parsedData[i].checkIn + "<br>" +
+                    "Check Out: " + parsedData[i].checkOut + "<br>" +
+                    "Number Of Nights:" + parsedData[i].numberOfNights + "<br>" +
+                    "Room Type: " + parsedData[i].roomType + "</p>"
+                    +`<button id='all' onclick='dataList' value='${parsedData[i].id}'>Get All Rooms</button>`;
+
+                }
+
+                document.getElementById("data").innerHTML = dataList; 
+            } else {
+                console.log("That is an error.");
+            }
+        }
+        xhr.send();
+    }
+    // document.getElementById("delete").addEventListener("click", deletedData);
+    // const id = document.getElementById('delete button').value
+
+    // function deletedData() {
+    //     var xhr = new XMLHttpRequest();
+    //     console.log(xhr);
+
+    //     xhr.open('DELETE', `http://localhost:3000/api/nasa/${id}`, true);
+    //     xhr.onload = function () {
+        
+    //         if (xhr.status == 200) {
+
+    //             var parsedData = JSON.parse(xhr.responseText);
+
+    //             console.log(parsedData); 
+    //             }
+    //             document.getElementById("deletedData").innerHTML = dataList;
+                
+    //           console.log("That is an error.");
+    //         }
+    //     }
+    //     xhr.send();
+
+</script>
+
+
+
+<script src="index.js"></script>                
+​<script src="index.html"></script>
+<script src="hotels.js"></script>
+<script src="Hotel.js"></script>
+<script src="Reservation.js"></script>
+<script src="Room.js"></script>
             </body>
 </html> 
-
-    </body>
-</html>
